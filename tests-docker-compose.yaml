@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  searcher:
+    image: searcher
+    container_name: searcher_tests
+    build: .
+    restart: unless-stopped
+    command: ['sh', '-c', 'pytest -x ./searcher/tests/']
+    volumes:
+      - "./searcher:/home/alpine/searcher:ro"
+    env_file:
+      - .ci/local.test.env
+    networks:
+      - searcher-network
+
+networks:
+  searcher-network:

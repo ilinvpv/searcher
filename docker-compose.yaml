@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  searcher:
+    image: searcher
+    container_name: searcher_api
+    build: .
+    restart: unless-stopped
+    command: ['sh', '-c', 'uwsgi --yaml searcher/uwsgi.yml --py-autoreload 1']
+    volumes:
+      - "./searcher:/home/alpine/searcher:rw"
+    env_file:
+      - .ci/local.env
+    networks:
+      - searcher-network
+    ports:
+      - 6001:5000
+
+networks:
+  searcher-network:

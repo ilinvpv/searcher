@@ -1,0 +1,16 @@
+uwsgi:
+  master: true
+  thunder-lock: true
+  pcre-jit: true
+  uid: alpine
+  gid: alpine
+  socket: :5000
+  need-app: true
+  protocol: http
+  wsgi-file: searcher/wsgi.py
+  callable: app
+  workers: 5
+  harakiri: 120
+  enable-threads: 1
+  plugins:
+    - python3

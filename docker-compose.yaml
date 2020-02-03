@@ -14,6 +14,12 @@ services:
       - searcher-network
     ports:
       - 6001:5000
-
+  sphinx:
+    image: stefobark/sphinxdocker
+    container_name: sphinx_search
+    restart: unless-stopped
+    volumes:
+      - "./dicts:/etc/sphinxsearch/dicts"
+      - "./sphinx.conf:/etc/sphinxsearch/sphinx.conf"
 networks:
   searcher-network:

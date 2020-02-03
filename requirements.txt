@@ -5,3 +5,4 @@ covador==0.9.26
 marshmallow==3.3.0
 pytest==5.3.4
 pytest-flask==0.15.0
+pymysqlpool==1.0.9

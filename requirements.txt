@@ -1,5 +1,5 @@
 Faker==4.0.0
-Flask==1.1.1
+Flask==2.3.2
 confi==0.0.4.1
 covador==0.9.26
 marshmallow==3.3.0
